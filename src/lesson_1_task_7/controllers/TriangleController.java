@@ -5,7 +5,7 @@ import lesson_1_task_7.models.Triangle;
 public class TriangleController {
     public static String bottomLeftTriangle(Triangle figure) {
         String result = "";
-        for (int i = 0; i <= figure.x; i++) {
+        for (int i = 1; i <= figure.x; i++) {
             for (int j = 0; j < i; j++) {
                 result += '.';
             }
