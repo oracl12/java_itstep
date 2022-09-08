@@ -12,8 +12,8 @@ public class View {
             for (int k = 0; k < pass; k++){
                 res_string += ' ';
             }
-            for (int j = 0; j < args.length; j++) {
-                res_string += args[j].split("\n")[i];
+            for (String arg : args) {
+                res_string += arg.split("\n")[i];
             }
             if (biggest_size != i) {
                 res_string += "\n";
@@ -24,8 +24,8 @@ public class View {
 
     void verticalRender(String... args) {
         String res_string = "";
-        for (int j = 0; j < args.length; j++) {
-            res_string += args[j];
+        for (String arg : args) {
+            res_string += arg;
         }
         System.out.println(res_string);
     }
