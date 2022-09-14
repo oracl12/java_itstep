@@ -2,8 +2,12 @@ package lesson_1_task_7.models;
 
 public class Line {
     public int len;
+    public char symbol;
+    public int shift;
 
-    public Line(int value_len) {
-        len = value_len;
+    public Line(int valueLen, char valueSymbol, int valueShift) {
+        len = valueLen;
+        symbol = valueSymbol;
+        shift = valueShift;
     }
 }

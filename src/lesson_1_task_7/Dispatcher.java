@@ -9,37 +9,82 @@ import lesson_1_task_7.controllers.TriangleController;
 
 public class Dispatcher {
     public static void main(String[] args) {
-        // TODO when shape dont equal error
+        //Basic models
 
-        Triangle triangle = new Triangle(5);
-        Rectangle rec = new Rectangle(5);
+        Rectangle rec1 = new Rectangle(5,10, '+', 0);
+        Rectangle rec2 = new Rectangle(5,10, '-', 10);
 
-        Triangle triangle2 = new Triangle(6);
-        Rectangle rec2 = new Rectangle(6);
+        Triangle triangle1 = new Triangle(5, '0', 10);
+        Triangle triangle2 = new Triangle(5, '-', 0);
 
-        Triangle triangle3 = new Triangle(3);
-        Rectangle rec3 = new Rectangle(4);
-        Line line = new Line(10);
+        Line line = new Line(10, '*', 10);
+
+        // Views with controllers
         View view = new View();
 
-        view.simpleRender(0, TriangleController.bottomLeftTriangle(triangle));
-        view.simpleRender(5, TriangleController.topLeftTriangle(triangle));
-        view.simpleRender(0, TriangleController.topRightTriangle(triangle));
-        view.simpleRender(0, TriangleController.bottomRightTriangle(triangle));
-        view.simpleRender(0, RectangleController.cube(rec));
-        view.simpleRender(0, LineController.line(line, "."));
-        view.simpleRender(0, LineController.line(line, " "));
+        // Level 1
+        System.out.println("LEVEL1 ".repeat(10));
+        view.simpleRender(LineController.line(line));
+        view.simpleRender(RectangleController.rectangle(rec1));
+        view.simpleRender(TriangleController.bottomLeftTriangle(triangle1));
+        view.simpleRender(TriangleController.topLeftTriangle(triangle2));
+        view.simpleRender(TriangleController.topRightTriangle(triangle1));
+        view.simpleRender(TriangleController.bottomRightTriangle(triangle2));
 
-        view.inlineRender(5, TriangleController.bottomRightTriangle(triangle), TriangleController.bottomLeftTriangle(triangle));
-        view.inlineRender(2, TriangleController.bottomRightTriangle(triangle), RectangleController.cube(rec), TriangleController.bottomLeftTriangle(triangle));
-        view.inlineRender(1, TriangleController.bottomRightTriangle(triangle2), RectangleController.cube(rec2), TriangleController.bottomLeftTriangle(triangle2));
-        view.inlineRender(7, TriangleController.bottomRightTriangle(triangle3), TriangleController.bottomLeftTriangle(triangle3));
-        view.simpleRender(8, RectangleController.cube(rec3));
+        // Level 2
+        // p1
+        System.out.println("LEVEL2 p1 ".repeat(10));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangle1), TriangleController.bottomLeftTriangle(triangle2));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangle1), RectangleController.rectangle(rec1),
+                TriangleController.bottomLeftTriangle(triangle2));
 
-        view.verticalRender(TriangleController.bottomLeftTriangle(triangle), TriangleController.topLeftTriangle(triangle));
-        view.verticalRender(TriangleController.bottomLeftTriangle(triangle), RectangleController.cube(rec), TriangleController.topLeftTriangle(triangle));
-        view.verticalRender(TriangleController.bottomLeftTriangle(triangle), RectangleController.cube(rec), TriangleController.topRightTriangle(triangle));
+        // p2
+        System.out.println("LEVEL2 p2 ".repeat(10));
+        Rectangle rect = new Rectangle(3,5, '+', 10);
 
+        Triangle tr1 = new Triangle(5, '0', 10);
+        Triangle tr2 = new Triangle(5, '-', 10);
 
+        view.simpleRender(TriangleController.bottomLeftTriangle(tr1));
+        view.simpleRender(TriangleController.topLeftTriangle(tr2));
+
+        view.simpleRender(TriangleController.bottomRightTriangle(tr1));
+        view.simpleRender(RectangleController.rectangle(rect));
+        view.simpleRender(TriangleController.topRightTriangle(tr2));
+
+        //Tree
+        System.out.println("TREE ".repeat(10));
+        Triangle triangleTreeTopLeft = new Triangle(5, '0', 15);
+        Triangle triangleTreeTopRight = new Triangle(5, '0', 0);
+        Triangle triangleTreeMiddleLeft = new Triangle(10, '-', 10);
+        Triangle triangleTreeMiddleRight = new Triangle(10, '-', 0);
+        Triangle triangleTreeBottomLeft = new Triangle(15, '*', 5);
+        Triangle triangleTreeBottomRight = new Triangle(15, '*', 0);
+        Rectangle rectBottom = new Rectangle(3,5, '+', 17);
+
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleTreeTopLeft), TriangleController.bottomLeftTriangle(triangleTreeTopRight));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleTreeMiddleLeft), TriangleController.bottomLeftTriangle(triangleTreeMiddleRight));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleTreeBottomLeft), TriangleController.bottomLeftTriangle(triangleTreeBottomRight));
+        view.simpleRender(RectangleController.rectangle(rectBottom));
+
+        //rocket
+        System.out.println("ROCKET ".repeat(15));
+        Triangle triangleRocketTopLeft = new Triangle(5, '0', 15);
+        Triangle triangleRocketTopRight = new Triangle(5, '0', 0);
+        Triangle triangleRocketWingTopLeft = new Triangle(3, '0', 12);
+        Triangle triangleRocketWingTopRight = new Triangle(3, '0', 0);
+        Triangle triangleRocketWingBottomLeft = new Triangle(10, '0', 5);
+        Triangle triangleRocketWingBottomRIght = new Triangle(10, '0', 0);
+        Rectangle rectRocket1 = new Rectangle(3,10, '+', 15);
+        Rectangle rectRocket2 = new Rectangle(3,10, '+', 0);
+        Rectangle rectRocketBottom = new Rectangle(10,10, '+', 0);
+
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleRocketTopLeft), TriangleController.bottomLeftTriangle(triangleRocketTopRight));
+        view.simpleRender(RectangleController.rectangle(rectRocket1));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleRocketWingTopLeft), RectangleController.rectangle(rectRocket2),
+                TriangleController.bottomLeftTriangle(triangleRocketWingTopRight));
+        view.simpleRender(RectangleController.rectangle(rectRocket1));
+        view.inlineRender(TriangleController.bottomRightTriangle(triangleRocketWingBottomLeft), RectangleController.rectangle(rectRocketBottom),
+                TriangleController.bottomLeftTriangle(triangleRocketWingBottomRIght));
     }
 }
