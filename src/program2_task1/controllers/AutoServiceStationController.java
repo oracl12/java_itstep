@@ -9,7 +9,7 @@ public class AutoServiceStationController {
             autoserviceStation.currentCars.remove(car);
             System.out.println("Successful repair.");
         }else{
-            System.out.println("Dont have such cur on station.");
+            System.out.println("Dont have such car on station.");
         }
     }
 }

@@ -10,4 +10,8 @@ public class Driver {
         driverName = driverNameValue;
         cars = new ArrayList<>();
     }
+
+    public String getDriverName(){
+        return driverName;
+    }
 }

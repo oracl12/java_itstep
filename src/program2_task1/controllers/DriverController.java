@@ -36,7 +36,7 @@ public class DriverController {
             System.out.println("We already have such car.");
         }else {
             autoServiceStation.currentCars.add(car);
-            System.out.println("Success");
+            System.out.println("Success in putting car to service");
         }
     }
 }

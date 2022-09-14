@@ -1,5 +1,6 @@
 package program2_task1;
 
+import program2_task1.views.View;
 import program2_task1.controllers.AutoServiceStationController;
 import program2_task1.controllers.CarController;
 import program2_task1.controllers.DriverController;
@@ -10,23 +11,23 @@ import program2_task1.models.Driver;
 public class Main {
     public static void main(String[] args) {
         AutoserviceStation station1 = new AutoserviceStation("Somename", 3);
+        AutoserviceStation station2 = new AutoserviceStation("Somename2", 5);
         Driver driver1 = new Driver("Ostap");
         Driver driver2 = new Driver("Oleg");
         Car car1 = new Car("bentley", driver1);
         Car car2 = new Car("mustang", driver1);
         Car car3 = new Car("mustang", driver2);
 
-//        System.out.println(CarController.getCarCount());
-//        System.out.println(DriverController.getAllCarForDriver(driver1));
+        CarController.brokeCar(car1);
+        DriverController.putCarToAutoService(driver1, car1, station1);
+        DriverController.putCarToAutoService(driver1, car1, station1);
+        AutoServiceStationController.repair(car1, station2);
+        View.statisticCarForDriver(DriverController.getAllCarWorkingForDriver(driver1));
+        DriverController.repairCarByMySelf(driver1, car1);
+        View.statisticCarForDriver(DriverController.getAllCarWorkingForDriver(driver1));
 
-//        CarController.brokeCar(car1);
-//        DriverController.putCarToAutoService(driver1, car1, station1);
-//        DriverController.putCarToAutoService(driver1, car1, station1);
-//        AutoServiceStationController.repair(car1, station1);
-//        System.out.println(DriverController.getAllCarWorkingForDriver(driver1));
-//        DriverController.repairCarByMySelf(driver1, car1);
-//        System.out.println(DriverController.getAllCarWorkingForDriver(driver1));
-
+        View.statisticCarCount(CarController.getCarCount());
+        View.statisticCarForDriver(DriverController.getAllCarForDriver(driver1));
 
     }
 }
