@@ -2,7 +2,7 @@ package program2_task2;
 
 import static java.lang.Math.*;
 
-public class SomeController {
+public class MathController {
     public static double firstMethod(String function, double firstOperand, double secondOperand) {
         return switch (function) {
             case ("div") -> firstOperand / secondOperand;
