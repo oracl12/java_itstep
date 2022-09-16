@@ -20,4 +20,7 @@ public class Car {
     public String getBrand(){
         return brand;
     }
+    public static int getCarCount(){
+        return Car.carCount;
+    }
 }

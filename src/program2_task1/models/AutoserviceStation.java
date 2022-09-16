@@ -12,4 +12,13 @@ public class AutoserviceStation {
         maxCarsAtOnce = maxCarsAtOnceValue;
         currentCars = new ArrayList<>();
     }
+
+    public static void repair(Car car, AutoserviceStation autoserviceStation){
+        if (autoserviceStation.currentCars.contains(car)){
+            autoserviceStation.currentCars.remove(car);
+            System.out.println("Successful repair.");
+        }else{
+            System.out.println("Dont have such car on station.");
+        }
+    }
 }
