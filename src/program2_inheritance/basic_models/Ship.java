@@ -3,11 +3,20 @@ package program2_inheritance.basic_models;
 import program2_inheritance.Vehicle;
 
 public class Ship extends Vehicle {
-    int maxWeightCarry;
+    private boolean hasValidLicense;
+    private String capitan;
 
-    public Ship(int maxWeightCarryValue, String sizeValue, int speedValue) {
-        super(sizeValue, speedValue);
+    public String getCapitan(){
+        return capitan;
+    }
+    public boolean getHasValidLicense(){
+        return hasValidLicense;
+    }
 
-        maxWeightCarry = maxWeightCarryValue;
+    public void setCapitan(String value){
+        capitan = value;
+    }
+    public void setHasValidLicense(boolean value){
+        hasValidLicense = value;
     }
 }

@@ -3,10 +3,12 @@ package program2_inheritance.plains;
 import program2_inheritance.basic_models.Plain;
 
 public class PassengerPlain extends Plain {
-    int maxPassengers;
+    private int maxLuggage;
 
-    public PassengerPlain(int maxPassengersValue, int maxFlyHeightValue, String sizeValue, int speedValue) {
-        super(maxFlyHeightValue, sizeValue, speedValue);
-        maxPassengers = maxPassengersValue;
+    public int getMaxLuggage(){
+        return maxLuggage;
+    }
+    public void setMaxLuggage(int value){
+        maxLuggage = value;
     }
 }

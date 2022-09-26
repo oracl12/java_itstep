@@ -3,10 +3,20 @@ package program2_inheritance.ships;
 import program2_inheritance.basic_models.Ship;
 
 public class Tug extends Ship {
-    int maxShipsToTugAtOnce;
+    private int maxShipsToTugAtOnce;
+    private int maxWeightOfCarriedShips;
 
-    public Tug(int maxShipsToTugAtOnceValue, int maxWeightCarryValue, String sizeValue, int speedValue) {
-        super(maxWeightCarryValue, sizeValue, speedValue);
-        maxShipsToTugAtOnce = maxShipsToTugAtOnceValue;
+    public int getMaxShipsToTugAtOnce(){
+        return maxShipsToTugAtOnce;
+    }
+    public int getMaxWeightOfCarriedShips(){
+        return maxWeightOfCarriedShips;
+    }
+
+    public void setMaxShipsToTugAtOnce(int value){
+        maxShipsToTugAtOnce = value;
+    }
+    public void setMaxWeightOfCarriedShips(int value){
+        maxWeightOfCarriedShips = value;
     }
 }

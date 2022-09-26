@@ -3,12 +3,12 @@ package program2_inheritance.plains;
 import program2_inheritance.basic_models.Plain;
 
 public class Destroyer extends Plain {
-    int rocketsNum;
-    int peopleInCabin;
+    private int rocketsNum;
 
-    public Destroyer(int rocketsNumValue, int peopleInCabinValue, int maxFlyHeightValue, String sizeValue, int speedValue) {
-        super(maxFlyHeightValue, sizeValue, speedValue);
-        rocketsNum = rocketsNumValue;
-        peopleInCabin = peopleInCabinValue;
+    protected int getRocketsNum(){
+        return rocketsNum;
+    }
+    protected void setRocketsNum(int value){
+        rocketsNum = value;
     }
 }

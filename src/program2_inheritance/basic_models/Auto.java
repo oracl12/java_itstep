@@ -3,13 +3,20 @@ package program2_inheritance.basic_models;
 import program2_inheritance.Vehicle;
 
 public class Auto extends Vehicle {
-    int maxRange;
-    String carNumber;
+    private String mark;
+    private String carNumber;
 
-    public Auto(int maxRangeValue, String carNumberValue, String sizeValue, int speedValue) {
-        super(sizeValue, speedValue);
+    public String getMark(){
+        return mark;
+    }
+    public String getCarNumber(){
+        return carNumber;
+    }
 
-        maxRange = maxRangeValue;
-        carNumber = carNumberValue;
+    public void setMark(String value){
+        mark = value;
+    }
+    public void setCarNumber(String value){
+        carNumber = value;
     }
 }

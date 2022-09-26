@@ -3,12 +3,12 @@ package program2_inheritance.autos;
 import program2_inheritance.basic_models.Auto;
 
 public class LightAuto extends Auto {
-    Boolean isSuperCar;
-    int places;
+    private Boolean isSuperCar;
 
-    public LightAuto( Boolean isSuperCarValue, int placesValue, int maxRangeValue, String carNumberValue, String sizeValue, int speedValue) {
-        super(maxRangeValue, carNumberValue, sizeValue, speedValue);
-        isSuperCar = isSuperCarValue;
-        places = placesValue;
+    public Boolean getIsSuperCar(){
+        return isSuperCar;
+    }
+    public void setIsSuperCar(boolean value){
+        isSuperCar = value;
     }
 }
